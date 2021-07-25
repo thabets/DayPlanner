@@ -83,3 +83,7 @@ i {
   width: 50%;
   margin-left: 25%;
 }
+.clear i:hover {
+  font-size: 50px;
+  transition: all 0.3s ease-in-out;
+}

@@ -45,6 +45,7 @@ $(document).ready(function () {
   $(".clear").on("click", function () {
     if (confirm("Are you sure you want to clear everything?")) {
       localStorage.clear();
+      location.reload();
     } else {
       alert("Tasks where not deleted");
     }
