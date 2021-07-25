@@ -72,3 +72,14 @@ textarea {
 i {
   font-size: 30px;
 }
+.clear {
+  font-size: large;
+  background-color: #06aed5;
+  border: 1px solid black;
+  border-radius: 10px;
+  margin-top: 10px;
+  padding: 5px 0 5px 0;
+  margin-bottom: 20px;
+  width: 50%;
+  margin-left: 25%;
+}
