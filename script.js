@@ -1,66 +1,42 @@
 //variable
-body = document.body
-const localInput = document.getElementById('#storage');
+$(document).ready(function () {
+  //Header Date
+  let date = moment().format("dddd, MMM Do YYYY");
+  let time = moment().format("LT");
+  let hour = moment().format("HH");
+  var blockTime = [9, 10, 11, 12, 13, 14, 15, 16, 17]; //Hour identifying array
+  $("#currentDay").text("Today is " + date);
+  $("#currentTime").text("It is " + time);
 
+  // CSS styling addClass feature  (Need to look as to why it might not work)
 
-
-//Header Date
-src = "https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.20.1/moment.min.js"
-let date = moment().format("dddd, MMM Do YYYY");
-let time = moment().format('LT');
-let hour = moment().format('HH');
-
-document.getElementById("currentDay").textContent = 'Today is ' + date;
-document.getElementById("currentTime").textContent = 'It is ' + time;
-
-//Body Content
-
-
-
-
-
-
-
-// CSS styling addclass feature
-
-$(document).ready(function(){
-    if (hour>=10){
-        $('textarea').addClass('past');
-    }else if (hour == 9){
-        $('textarea').addClass('present');
-    }else{
-        $('textarea').addClass('future');
+  for (let i = 0; i < blockTime.length; i++) {
+    if (hour > blockTime[i]) {
+      $(".time-block textarea:eq(" + i + ")").addClass("past");
+    } else if (hour == blockTime[i]) {
+      $(".time-block textarea:eq(" + i + ")").addClass("present");
+    } else {
+      $(".time-block textarea:eq(" + i + ")").addClass("future");
     }
-}
+  }
 
+  // Saving text Function
+  $(".saveBtn").on("click", function () {
+    console.log($($(this).siblings()[1]).val()); //after zooming in to the array, jquery lost its mojo
+    console.log($(this).siblings());
+    var text = $(this).siblings()[1].value;
+    var id = $(this).siblings()[1].id;
+    localStorage.setItem("Daily Scheduler" + id, text);
 
+    var tasks = localStorage.getItem("Daily Scheduler" + 15, text);
+    console.log(tasks);
+  });
+});
 
+//Return of information on scheduler from local storage;
 
-)
+//$(document).ready(function () {
+// retrieve();
+//});
 
-
-//Setting the color attributes to the different rows of text
-row1 = document.querySelector('#row1');
-var rowT = 10;
-function pastClass(){
-    if(hour > rowT){
-    row1.addClass('past');
-    }else if(time = row){
-        row1.addClass = ('present');
-    }else{
-        row1.addClass = ('future');
-    }
-}console.log(pastClass);
-console.log();
-$(document).ready(function(){
-    console.log('hi');
-})
-//utilize event listener and not try to use class
-//event listner named onload, what it does is that it is triggered when we load a page. It will call for an event to occur
-//when we 
-
-//develop storage
-//  That will be done by adding an event listner or onclick, reaserch what is better then a function will occur by saving the information within the text area.
-//  we will need to also set an functionality to the function that would limit the amount of input allowed into the text area.
-//  look into the different between session storage and local storage
-
+//$("#9").getitem().val("FAEWhioafwehiafewhoifae");
