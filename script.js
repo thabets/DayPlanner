@@ -26,19 +26,21 @@ $(document).ready(function () {
     var text = $(this).siblings()[1].value;
     var id = $(this).siblings()[1].id;
     localStorage.setItem("Daily Scheduler" + id, text);
+    console.log(id);
+    console.log($(this).siblings()[1].value);
   });
 
   //Showing the items that are saved from local storage on page once refreshed
 
-  $("#9").text(localStorage.getItem("Daily Scheduler" + 9));
-  $("#10").text(localStorage.getItem("Daily Scheduler" + 10));
-  $("#11").text(localStorage.getItem("Daily Scheduler" + 11));
-  $("#12").text(localStorage.getItem("Daily Scheduler" + 12));
-  $("#13").text(localStorage.getItem("Daily Scheduler" + 13));
-  $("#14").text(localStorage.getItem("Daily Scheduler" + 14));
-  $("#15").text(localStorage.getItem("Daily Scheduler" + 15));
-  $("#16").text(localStorage.getItem("Daily Scheduler" + 16));
-  $("#17").text(localStorage.getItem("Daily Scheduler" + 17));
+  // $("#9").text(localStorage.getItem("Daily Scheduler" + 9));
+  // $("#10").text(localStorage.getItem("Daily Scheduler" + 10));
+  // $("#11").text(localStorage.getItem("Daily Scheduler" + 11));
+  // $("#12").text(localStorage.getItem("Daily Scheduler" + 12));
+  // $("#13").text(localStorage.getItem("Daily Scheduler" + 13));
+  // $("#14").text(localStorage.getItem("Daily Scheduler" + 14));
+  // $("#15").text(localStorage.getItem("Daily Scheduler" + 15));
+  // $("#16").text(localStorage.getItem("Daily Scheduler" + 16));
+  // $("#17").text(localStorage.getItem("Daily Scheduler" + 17));
 
   //Clear All Button at bottom, with confirmation alert
 
@@ -51,16 +53,19 @@ $(document).ready(function () {
     }
   });
 
-  /*// For loop to retrieve tasks saved on scheduler from local storage
+  // For loop to retrieve tasks saved on scheduler from local storage
   for (let i = 0; i < blockTime.length; i++) {
-    $(".retrieve").on("click", function () {
-      let tasks = $(this).siblings();
-      const name = localStorage.id(i);
-      const val = localStorage.getItem(name);
-      textArea.innerHTML += "${val}";
-      localStorage.getItem("Daily Scheduler" + blockTime[i]);
+    //   $(".retrieve").on("click", function () {
+    //     let tasks = $(this).siblings();
+    //     const name = localStorage.id(i);
+    //     const val = localStorage.getItem(name);
+    //     textArea.innerHTML += "${val}";
+    $("#" + blockTime[i]).text(
+      localStorage.getItem("Daily Scheduler" + blockTime[i])
+    );
 
-      //localStorage.getItem("Daily Scheduler" + blockTime[i]);
-      console.log(tasks);
-    });*/
+    //     //localStorage.getItem("Daily Scheduler" + blockTime[i]);
+    //     console.log(tasks);
+    //   });
+  }
 });
